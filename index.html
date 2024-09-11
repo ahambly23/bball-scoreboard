@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scoreboard</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
 </head>
 <body>
     <div class="main-cont">
         <div class="home">
             <h2 class="team">HOME</h2>
-            <div class="score"></div>
-            <button id="home-plus-one">+1</button>
-            <button id="home-plus-two">+1</button>
-            <button id="home-plus-three">+1</button>
+            <div id="home-score" class="score">9</div>
+            <div class="buttons">
+                <button id="home-plus-one">+1</button>
+                <button id="home-plus-two">+2</button>
+                <button id="home-plus-three">+3</button>
+            </div>
         </div>
         <div class="guest">
             <h2 class="team">GUEST</h2>
-            <div class="score"></div>
-            <button id="home-plus-one">+1</button>
-            <button id="home-plus-two">+1</button>
-            <button id="home-plus-three">+1</button>
+            <div id="guest-score" class="score">999</div>
+            <div class="buttons">
+                <button id="home-plus-one">+1</button>
+                <button id="home-plus-two">+2</button>
+                <button id="home-plus-three">+3</button>
+            </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
