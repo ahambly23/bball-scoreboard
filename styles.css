@@ -20,15 +20,15 @@ body {
 header {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centers buttons in the header */
-    gap: 2px; /* Adds some space between buttons */
+    justify-content: center;
+    gap: 2px;
     margin-top: 20px;
     margin-bottom: 40px;
 }
 
 .team-btn {
-    flex: 1 1 calc(6.66% - 2px); /* 25% for four buttons per row minus the gap */
-    max-width: calc(6.66% - 2px); /* Ensures max width per button */
+    flex: 1 1 calc(6.66% - 2px);
+    max-width: calc(6.66% - 2px);
     font-size: 8px;
 }
 
@@ -122,8 +122,8 @@ button:active {
 }
 
 .team-btn {
-    flex: 1 1 calc(6% - 4px); /* 25% for four buttons per row minus the gap */
-    max-width: calc(6% - 4px); /* Ensures max width per button */
+    flex: 1 1 calc(6% - 4px); 
+    max-width: calc(6% - 4px);
     font-size: 8px;
     padding: 4px;
     border-radius: 4px;
