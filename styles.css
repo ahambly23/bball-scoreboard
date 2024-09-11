@@ -1,4 +1,11 @@
-@import url('https://fonts.cdnfonts.com/css/digital-7-mono');
+@font-face {
+    font-family: 'Digital Display';
+    src: url('https://praxeds.github.io/scrimba-basketball-scoreboard/Assets/Digital-Display.woff2') format('woff2'),
+        url('https://praxeds.github.io/basketball-scoreboard/Assets/Digital-Display.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 * {
     margin: 0;
@@ -10,7 +17,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: #1d1160;
 }
 
 .main-cont {
@@ -19,9 +26,9 @@ body {
     align-items: center;
     min-width: 400px;
     width: 800px;
-    border: 2px solid white;
+    border: 8px solid #e56020;
     border-radius: 4px;
-    background-color: black;
+    background-color: #1d1160;
 }
 
 .home,
@@ -30,33 +37,37 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
 }
 
 .team {
-    font-family: 'Digital-7', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: white;
+    background-color: #1d1160;
+    color: #e56020;
     padding: 4px 8px;
     font-size: 42px;
     margin: 40px 40px 20px 40px;
+    
 }
 
 .score {
-    font-family: 'Digital-7', sans-serif;
+    font-family: 'Digital Display', sans-serif;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: rgb(43, 43, 43);
     border-radius: 4px;
     color: red;
-    padding: 4px 8px;
+    padding: 18px 8px;
     font-size: 120px;
     width: 3ch;
     padding-bottom: -10px;
     margin: 0px 20px 20px 20px;
+    text-shadow: 4px 4px 2px black;
+    box-shadow: 8px 8px 4px #170d4b;
 }
 
 .buttons {
@@ -64,7 +75,29 @@ body {
 }
 
 button {
-    padding: 12px;
     cursor: pointer;
+    background-color: #e56020;
+    color: #1d1160;
+    border-radius: 15px;
+    border: 2px solid #e56020;
+    font-size: 28px;
+    margin: 20px 10px;
+    padding: 8px;
 }
 
+button:active {
+    background-color: #de7f53;
+    border: 2px solid #de7f53;
+}
+
+#reset {
+    font-size: 18px;
+    align-self: flex-end;
+    background-color: #1d1160;
+    color: #e56020;
+    border: none;
+}
+
+#reset:active {
+    color: #de7f53;
+}
