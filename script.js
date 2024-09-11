@@ -176,3 +176,49 @@ document.querySelectorAll('header button').forEach(button => {
         updateColorScheme(teamName);
     });
 });
+
+const countdown = document.getElementById("timer");
+const mainCountdown = document.getElementById("main-countdown-btn")
+const resetCountdownBtn = document.getElementById("reset-countdown-btn")
+let countdownInterval;
+let startingMinutes = 12;
+let time = startingMinutes * 60;
+
+countdown.innerText = "12:00"
+mainCountdown.innerText = "Start";
+
+const updateCountdown = () => {
+    if (time >= 0) {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+
+        countdown.innerHTML = `${minutes}:${seconds}`;
+        time--;
+    } else {
+        resetCountdown();
+    }
+}
+
+const resetCountdown = () => {
+    clearInterval(countdownInterval);
+    mainCountdown.innerText = "Start";
+    startingMinutes = 12;
+    time = startingMinutes * 60;
+    countdown.innerHTML = "12:00"
+}
+
+mainCountdown.addEventListener("click", () => {
+    if (mainCountdown.innerText === "Start") {
+        countdownInterval = setInterval(updateCountdown, 1000);
+        mainCountdown.innerText = "Pause";
+    } else if (mainCountdown.innerText === "Pause") {
+        clearInterval(countdownInterval);
+        mainCountdown.innerText = "Start";
+    }
+});
+
+resetCountdownBtn.addEventListener("click", resetCountdown);
+
