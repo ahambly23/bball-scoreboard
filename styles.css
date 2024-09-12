@@ -17,21 +17,22 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #1d1160;
+    font-size: 16px;
 }
 
 header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    gap: 0.125rem; /* 2px */
+    margin-top: 1.25rem; /* 20px */
+    margin-bottom: 2.5rem; /* 40px */
 }
 
 .team-btn {
-    flex: 1 1 calc(6.66% - 2px);
-    max-width: calc(6.66% - 2px);
-    font-size: 8px !important;
+    flex: 1 1 calc(6.66% - 0.125rem); /* 2px */
+    max-width: calc(6.66% - 0.125rem); /* 2px */
+    font-size: 0.5rem !important; /* 8px */
 }
 
 .main {
@@ -44,12 +45,12 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-width: 400px;
-    width: 800px;
-    border: 8px solid #e56020;
-    border-radius: 4px;
+    min-width: 25rem; /* 400px */
+    width: 50rem; /* 800px */
+    border: 0.5rem solid #e56020; /* 8px */
+    border-radius: 0.25rem; /* 4px */
     background-color: #1d1160;
-    box-shadow: 6px 6px 18px black;
+    box-shadow: 0.375rem 0.375rem 1.125rem black; /* 6px 6px 18px */
 }
 
 .home,
@@ -68,10 +69,9 @@ header {
     align-items: center;
     background-color: #1d1160;
     color: #e56020;
-    padding: 4px 8px;
-    font-size: 42px;
-    margin: 40px 40px 20px 40px;
-    
+    padding: 0.25rem 0.5rem; /* 4px 8px */
+    font-size: 2.625rem; /* 42px */
+    margin: 2.5rem 2.5rem 1.25rem 2.5rem; /* 40px 40px 20px 40px */
 }
 
 .score {
@@ -80,41 +80,41 @@ header {
     justify-content: flex-end;
     align-items: center;
     background-color: rgb(43, 43, 43);
-    border-radius: 4px;
+    border-radius: 0.25rem; /* 4px */
     color: red;
-    padding: 18px 8px;
-    font-size: 120px;
+    padding: 1.125rem 0.5rem; /* 18px 8px */
+    font-size: 7.5rem; /* 120px */
     width: 3ch;
-    padding-bottom: -10px;
-    margin: 0px 20px 20px 20px;
-    text-shadow: 4px 4px 2px black;
-    box-shadow: 8px 8px 4px black;
-    border: 4px solid black;
+    padding-bottom: -0.625rem; /* -10px */
+    margin: 0 1.25rem 1.25rem 1.25rem; /* 0px 20px 20px 20px */
+    text-shadow: 0.25rem 0.25rem 0.125rem black; /* 4px 4px 2px */
+    box-shadow: 0.5rem 0.5rem 0.25rem black; /* 8px 8px 4px */
+    border: 0.25rem solid black; /* 4px */
 }
 
 .buttons {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem; /* 40px */
 }
 
 button {
     cursor: pointer;
     background-color: #e56020;
     color: #1d1160;
-    border-radius: 15px;
-    border: 2px solid #e56020;
-    font-size: 24px;
-    margin: 20px 10px;
-    padding: 8px;
+    border-radius: 0.9375rem; /* 15px */
+    border: 0.125rem solid #e56020; /* 2px */
+    font-size: 1.5rem; /* 24px */
+    margin: 1.25rem 0.625rem; /* 20px 10px */
+    padding: 0.5rem; /* 8px */
     font-family: '60s Scoreboard', sans-serif;
 }
 
 button:active {
     background-color: #de7f53;
-    border: 2px solid #de7f53;
+    border: 0.125rem solid #de7f53; /* 2px */
 }
 
 #reset {
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px */
     align-self: center;
     background-color: #1d1160;
     color: #e56020;
@@ -126,16 +126,16 @@ button:active {
 }
 
 .team-btn {
-    flex: 1 1 calc(6% - 4px); 
-    max-width: calc(6% - 4px);
-    font-size: 6px;
-    padding: 4px;
-    border-radius: 4px;
+    flex: 1 1 calc(6% - 0.25rem); /* 4px */
+    max-width: calc(6% - 0.25rem); /* 4px */
+    font-size: 0.375rem; /* 6px */
+    padding: 0.25rem; /* 4px */
+    border-radius: 0.25rem; /* 4px */
     background-color: gray;
     color: white;
-    border: 2px solid gray;
-    margin: 4px;
-    text-shadow: 1px 0.5px 0 #000, 0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+    border: 0.125rem solid gray; /* 2px */
+    margin: 0.25rem; /* 4px */
+    text-shadow: 0.0625rem 0.03125rem 0 #000, 0.03125rem 0.03125rem 0 #000, 0.03125rem 0.03125rem 0 #000; /* 1px, 0.5px, etc */
     letter-spacing: 0.3em;
 }
 
@@ -158,39 +158,39 @@ button:active {
     font-family: 'Digital Display', sans-serif;
     flex: 1 1 100%;
     background-color: rgb(43, 43, 43);
-    border-radius: 4px;
+    border-radius: 0.25rem; /* 4px */
     color: red;
-    padding: 10px 8px;
-    font-size: 90px;
+    padding: 0.625rem 0.5rem; /* 10px 8px */
+    font-size: 5.625rem; /* 90px */
     width: 5ch;
-    padding-bottom: -10px;
-    margin: 0px 20px 0px 20px;
-    text-shadow: 4px 4px 2px black;
-    box-shadow: 8px 8px 4px black;
-    border: 4px solid black;
+    padding-bottom: -0.625rem; /* -10px */
+    margin: 0 1.25rem 0 1.25rem; /* 0px 20px 0px 20px */
+    text-shadow: 0.25rem 0.25rem 0.125rem black; /* 4px 4px 2px */
+    box-shadow: 0.5rem 0.5rem 0.25rem black; /* 8px 8px 4px */
+    border: 0.25rem solid black; /* 4px */
 }
 
 #input-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 240px;
+    max-width: 15rem; /* 240px */
     margin: 0 auto;
 }
 
 #select-minutes {
     font-family: 'Digital Display', sans-serif;
     background-color: rgb(43, 43, 43);
-    border: 2px solid black;
-    border-radius: 2px;
+    border: 0.125rem solid black; /* 2px */
+    border-radius: 0.125rem; /* 2px */
     color: red;
-    padding: 8px;
-    font-size: 32px;
+    padding: 0.5rem; /* 8px */
+    font-size: 2rem; /* 32px */
     text-align: center;
-    max-width: 50px;
+    max-width: 3.125rem; /* 50px */
     flex: 1 1 20%;
-    text-shadow: 1px 1px 0.5px black;
-    box-shadow: 4px 4px 2px black;
+    text-shadow: 0.0625rem 0.0625rem 0.03125rem black; /* 1px 1px 0.5px */
+    box-shadow: 0.25rem 0.25rem 0.125rem black; /* 4px 4px 2px */
 }
 
 #select-minutes-btn {
@@ -200,15 +200,15 @@ button:active {
     color: #e56020;
     text-align: center;
     flex: 1 1 80%;
-    padding: 0px;
-    max-width: 50px;
-    font-size: 14px;
+    padding: 0;
+    max-width: 3.125rem; /* 50px */
+    font-size: 0.875rem; /* 14px */
 }
 
 #clear-guest-score,
 #clear-home-score {
-    margin-top: -50px;
-    font-size: 14px;
+    margin-top: -3.125rem; /* -50px */
+    font-size: 0.875rem; /* 14px */
     color: #e56020;
     border: none;
     background: none;
@@ -216,8 +216,8 @@ button:active {
 
 #main-countdown-btn,
 #reset-countdown-btn {
-    font-size: 18px;
-    margin-top: 0px;
+    font-size: 1.125rem; /* 18px */
+    margin-top: 0;
     color: #e56020;
     border: none;
     background: none;
@@ -229,4 +229,33 @@ button:active {
 #clear-home-score:active,
 #select-minutes-btn:active {
     color: #de7f53 !important;
+}
+
+@media only screen and (max-width: 320px) {
+    body {
+        font-size: 6px;
+    }
+
+    .main-cont {
+        padding: 0.5rem;
+    }
+
+    .team {
+        font-size: 1.25rem;
+        margin: 0.5rem;
+    }
+
+    .score {
+        font-size: 2.5rem;
+    }
+
+    button {
+        font-size: 0.875rem;
+        padding: 0.25rem;
+        margin: 0.5rem 0.25rem;
+    }
+
+    #timer {
+        font-size: 2.5rem;
+    }
 }
