@@ -231,13 +231,23 @@ const updateCountdown = () => {
 }
 
 const resetCountdown = () => {
-    clearInterval(countdownInterval);
     const inputValue = minutesInpt.value;
-    mainCountdown.innerText = "Start";
-    startingMinutes = inputValue;
-    time = startingMinutes * 60;
-    startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
-    countdown.innerText = `${startingMinutes}:00`;
+    if (!inputValue) {
+        clearInterval(countdownInterval);
+        mainCountdown.innerText = "Start";
+        startingMinutes = 12;
+        time = startingMinutes * 60;
+        startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+        countdown.innerText = `${startingMinutes}:00`;
+    } else if (inputValue) {
+        clearInterval(countdownInterval);
+        const inputValue = minutesInpt.value;
+        mainCountdown.innerText = "Start";
+        startingMinutes = inputValue;
+        time = startingMinutes * 60;
+        startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+        countdown.innerText = `${startingMinutes}:00`;
+    }
 }
 
 mainCountdown.addEventListener("click", () => {
