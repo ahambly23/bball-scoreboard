@@ -1,3 +1,35 @@
+const defColor = document.getElementById("default-color");
+const hawks = document.getElementById("hawks");
+const celtics = document.getElementById("celtics");
+const nets = document.getElementById("nets");
+const hornets = document.getElementById("hornets");
+const bulls = document.getElementById("bulls");
+const cavaliers = document.getElementById("cavaliers");
+const mavericks = document.getElementById("mavericks");
+const nuggets = document.getElementById("nuggets");
+const pistons = document.getElementById("pistons");
+const warriors = document.getElementById("warriors");
+const rockets = document.getElementById("rockets");
+const pacers = document.getElementById("pacers");
+const clippers = document.getElementById("clippers");
+const lakers = document.getElementById("lakers");
+const grizzlies = document.getElementById("grizzlies");
+const heat = document.getElementById("heat");
+const bucks = document.getElementById("bucks");
+const timberwolves = document.getElementById("timberwolves");
+const pelicans = document.getElementById("pelicans");
+const knicks = document.getElementById("knicks");
+const thunder = document.getElementById("thunder");
+const magic = document.getElementById("magic");
+const sixers = document.getElementById("sixers");
+const suns = document.getElementById("suns");
+const blazers = document.getElementById("blazers");
+const kings = document.getElementById("kings");
+const spurs = document.getElementById("spurs");
+const raptors = document.getElementById("raptors");
+const jazz = document.getElementById("jazz");
+const wizards = document.getElementById("wizards");
+
 const homeScoreboard = document.getElementById("home-score");
 const guestScoreboard = document.getElementById("guest-score");
 const homePlusOne = document.getElementById("home-plus-one");
@@ -7,53 +39,22 @@ const guestPlusOne = document.getElementById("guest-plus-one");
 const guestPlusTwo = document.getElementById("guest-plus-two");
 const guestPlusThree = document.getElementById("guest-plus-three");
 
+const countdown = document.getElementById("timer");
+const mainCountdown = document.getElementById("main-countdown-btn");
+const resetCountdownBtn = document.getElementById("reset-countdown-btn");
+const minutesInpt = document.getElementById("select-minutes");
+const minutesBtn = document.getElementById("select-minutes-btn");
+
 const resetHomeScore = document.getElementById("clear-home-score");
 const resetGuestScore = document.getElementById("clear-guest-score");
-
-const resetButton = document.getElementById("reset")
-
-const defColor = document.getElementById("default-color")
-const hawks = document.getElementById("hawks")
-const celtics = document.getElementById("celtics")
-const nets = document.getElementById("nets")
-const hornets = document.getElementById("hornets")
-const bulls = document.getElementById("bulls")
-const cavaliers = document.getElementById("cavaliers")
-const mavericks = document.getElementById("mavericks")
-const nuggets = document.getElementById("nuggets")
-const pistons = document.getElementById("pistons")
-const warriors = document.getElementById("warriors")
-const rockets = document.getElementById("rockets")
-const pacers = document.getElementById("pacers")
-const clippers = document.getElementById("clippers")
-const lakers = document.getElementById("lakers")
-const grizzlies = document.getElementById("grizzlies")
-const heat = document.getElementById("heat")
-const bucks = document.getElementById("bucks")
-const timberwolves = document.getElementById("timberwolves")
-const pelicans = document.getElementById("pelicans")
-const knicks = document.getElementById("knicks")
-const thunder = document.getElementById("thunder")
-const magic = document.getElementById("magic")
-const sixers = document.getElementById("sixers")
-const suns = document.getElementById("suns")
-const blazers = document.getElementById("blazers")
-const kings = document.getElementById("kings")
-const spurs = document.getElementById("spurs")
-const raptors = document.getElementById("raptors")
-const jazz = document.getElementById("jazz")
-const wizards = document.getElementById("wizards")
+const resetButton = document.getElementById("reset");
 
 let homeScore = 0;
 let guestScore = 0;
 guestScoreboard.innerText = 0;
 homeScoreboard.innerText = 0;
 
-const countdown = document.getElementById("timer");
-const mainCountdown = document.getElementById("main-countdown-btn")
-const resetCountdownBtn = document.getElementById("reset-countdown-btn")
-const minutesInpt = document.getElementById("select-minutes");
-const minutesBtn = document.getElementById("select-minutes-btn");
+// SCORING FUNCTIONALITY
 
 const plusOne = (team) => {
     if (team === homePlusOne) {
@@ -86,6 +87,8 @@ const plusThree = (team) => {
     }
 }
 
+// SCORING BUTTONS
+
 guestPlusOne.addEventListener("click", () => {plusOne(guestPlusOne);});
 guestPlusTwo.addEventListener("click", () => {plusTwo(guestPlusTwo);});
 guestPlusThree.addEventListener("click", () => {plusThree(guestPlusThree);});
@@ -100,6 +103,8 @@ resetGuestScore.addEventListener("click", () => {
     guestScore = 0;
     guestScoreboard.innerText = guestScore;
 })
+
+// TEAM COLOUR OBJECT
 
 const teamObj = [
     {name: "default color", primary: "black", secondary: "white", third: "gray"}, 
@@ -134,6 +139,8 @@ const teamObj = [
     {name: "Jazz", primary: "#F9A01B", secondary: "#002B5C", third: "#00471B"}, 
     {name: "Wizards", primary: "#002B5C", secondary: "#E31837", third: "#C4CED4"}
 ];
+
+// UPDATES COLOUR ON CLICK FUNCTIONALITY
 
 function updateColorScheme(teamName) {
     const team = teamObj.find(t => t.name === teamName);
@@ -174,7 +181,7 @@ function updateColorScheme(teamName) {
             #reset-countdown-btn:active,
             #clear-guest-score:active,
             #clear-home-score:active,
-            #select-minutes-btn {
+            #select-minutes-btn:active {
                 color: ${team.third} !important;
             }
 
@@ -193,12 +200,16 @@ function updateColorScheme(teamName) {
     }
 }
 
+// UPDATE COLOUR BUTTONS
+
 document.querySelectorAll('header button').forEach(button => {
     button.addEventListener('click', () => {
         const teamName = button.getAttribute('data-team');
         updateColorScheme(teamName);
     });
 });
+
+// TIMER FUNCTIONALITY
 
 let countdownInterval;
 let startingMinutes = 12;
@@ -250,6 +261,8 @@ const resetCountdown = () => {
     }
 }
 
+// TIMER BUTTONS
+
 mainCountdown.addEventListener("click", () => {
     if (mainCountdown.innerText === "Start") {
         countdownInterval = setInterval(updateCountdown, 1000);
@@ -264,6 +277,8 @@ minutesBtn.addEventListener("click", () => {
     const inputValue = minutesInpt.value;
     setTimer(inputValue);
 })
+
+// RESET ALL BUTTON
 
 const reset = () => {
     homeScore = 0;
