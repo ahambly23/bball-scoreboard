@@ -180,12 +180,22 @@ document.querySelectorAll('header button').forEach(button => {
 const countdown = document.getElementById("timer");
 const mainCountdown = document.getElementById("main-countdown-btn")
 const resetCountdownBtn = document.getElementById("reset-countdown-btn")
+const minutesInpt = document.getElementById("select-minutes");
+const minutesBtn = document.getElementById("select-minutes-btn");
 let countdownInterval;
 let startingMinutes = 12;
 let time = startingMinutes * 60;
-
-countdown.innerText = "12:00"
+countdown.innerText = "12:00";
 mainCountdown.innerText = "Start";
+
+const setTimer = (minutesInput) => {
+    clearInterval(countdownInterval);
+    startingMinutes = minutesInput;
+    time = startingMinutes * 60;
+    startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+    countdown.innerText = `${startingMinutes}:00`;
+    mainCountdown.innerText = "Start";
+}
 
 const updateCountdown = () => {
     if (time >= 0) {
@@ -204,10 +214,12 @@ const updateCountdown = () => {
 
 const resetCountdown = () => {
     clearInterval(countdownInterval);
+    const inputValue = minutesInpt.value;
     mainCountdown.innerText = "Start";
-    startingMinutes = 12;
+    startingMinutes = inputValue;
     time = startingMinutes * 60;
-    countdown.innerHTML = "12:00"
+    startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+    countdown.innerText = `${startingMinutes}:00`;
 }
 
 mainCountdown.addEventListener("click", () => {
@@ -219,6 +231,8 @@ mainCountdown.addEventListener("click", () => {
         mainCountdown.innerText = "Start";
     }
 });
-
 resetCountdownBtn.addEventListener("click", resetCountdown);
-
+minutesBtn.addEventListener("click", () => {
+    const inputValue = minutesInpt.value;
+    setTimer(inputValue);
+})
