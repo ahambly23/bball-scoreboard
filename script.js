@@ -6,6 +6,10 @@ const homePlusThree = document.getElementById("home-plus-three");
 const guestPlusOne = document.getElementById("guest-plus-one");
 const guestPlusTwo = document.getElementById("guest-plus-two");
 const guestPlusThree = document.getElementById("guest-plus-three");
+
+const resetHomeScore = document.getElementById("clear-home-score");
+const resetGuestScore = document.getElementById("clear-guest-score");
+
 const resetButton = document.getElementById("reset")
 
 const defColor = document.getElementById("default-color")
@@ -45,6 +49,12 @@ let guestScore = 0;
 guestScoreboard.innerText = 0;
 homeScoreboard.innerText = 0;
 
+const countdown = document.getElementById("timer");
+const mainCountdown = document.getElementById("main-countdown-btn")
+const resetCountdownBtn = document.getElementById("reset-countdown-btn")
+const minutesInpt = document.getElementById("select-minutes");
+const minutesBtn = document.getElementById("select-minutes-btn");
+
 const plusOne = (team) => {
     if (team === homePlusOne) {
         homeScore += 1;
@@ -76,20 +86,20 @@ const plusThree = (team) => {
     }
 }
 
-const reset = () => {
-    homeScore = 0;
-    guestScore = 0;
-    homeScoreboard.innerText = homeScore;
-    guestScoreboard.innerText = guestScore;
-}
-
 guestPlusOne.addEventListener("click", () => {plusOne(guestPlusOne);});
 guestPlusTwo.addEventListener("click", () => {plusTwo(guestPlusTwo);});
 guestPlusThree.addEventListener("click", () => {plusThree(guestPlusThree);});
 homePlusOne.addEventListener("click", () => {plusOne(homePlusOne);});
 homePlusTwo.addEventListener("click", () => {plusTwo(homePlusTwo);});
 homePlusThree.addEventListener("click", () => {plusThree(homePlusThree);});
-resetButton.addEventListener("click", reset);
+resetHomeScore.addEventListener("click", () => {
+    homeScore = 0;
+    homeScoreboard.innerText = homeScore;
+})
+resetGuestScore.addEventListener("click", () => {
+    guestScore = 0;
+    guestScoreboard.innerText = guestScore;
+})
 
 const teamObj = [
     {name: "default color", primary: "black", secondary: "white", third: "gray"}, 
@@ -145,13 +155,26 @@ function updateColorScheme(teamName) {
         document.querySelectorAll(".team-btn").forEach(el => el.style.backgroundColor = team.secondary);
         document.querySelectorAll(".team-btn").forEach(el => el.style.borderColor = team.secondary);
 
+        mainCountdown.style.color = team.secondary;
+        resetCountdownBtn.style.color = team.secondary;
+        minutesBtn.style.color = team.secondary;
+        resetHomeScore.style.color = team.secondary;
+        resetGuestScore.style.color = team.secondary;
+
+
         const styleElement = document.createElement('style');
         styleElement.innerHTML = `
             .buttons button:active {
                 background-color: ${team.third} !important;
                 border-color: ${team.third} !important;
             }
-            #reset:active {
+                
+            #reset:active,
+            #main-countdown-btn:active,
+            #reset-countdown-btn:active,
+            #clear-guest-score:active,
+            #clear-home-score:active,
+            #select-minutes-btn {
                 color: ${team.third} !important;
             }
 
@@ -177,11 +200,6 @@ document.querySelectorAll('header button').forEach(button => {
     });
 });
 
-const countdown = document.getElementById("timer");
-const mainCountdown = document.getElementById("main-countdown-btn")
-const resetCountdownBtn = document.getElementById("reset-countdown-btn")
-const minutesInpt = document.getElementById("select-minutes");
-const minutesBtn = document.getElementById("select-minutes-btn");
 let countdownInterval;
 let startingMinutes = 12;
 let time = startingMinutes * 60;
@@ -236,3 +254,27 @@ minutesBtn.addEventListener("click", () => {
     const inputValue = minutesInpt.value;
     setTimer(inputValue);
 })
+
+const reset = () => {
+    homeScore = 0;
+    guestScore = 0;
+    homeScoreboard.innerText = homeScore;
+    guestScoreboard.innerText = guestScore;
+    clearInterval(countdownInterval);
+    const inputValue = minutesInpt.value;
+    if (!inputValue) {
+        startingMinutes = 12;
+        mainCountdown.innerText = "Start";
+        time = startingMinutes * 60;
+        startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+        countdown.innerText = `${startingMinutes}:00`;
+    } else {
+        startingMinutes = inputValue;
+        mainCountdown.innerText = "Start";
+        time = startingMinutes * 60;
+        startingMinutes = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+        countdown.innerText = `${startingMinutes}:00`;
+    }
+}
+
+resetButton.addEventListener("click", reset);

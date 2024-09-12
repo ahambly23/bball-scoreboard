@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scoreboard</title>
     <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/60s-scoreboard" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -39,7 +40,7 @@
         <button id="raptors" data-team="Raptors" class="team-btn">TOR</button>
         <button id="jazz" data-team="Jazz" class="team-btn">UTA</button>
         <button id="wizards" data-team="Wizards" class="team-btn">WAS</button>
-        <button id="default-color" data-team="default color" class="team-btn">B&W</button>
+        <button id="default-color" data-team="default color" class="team-btn">B+W</button>
     </header>
     <div class="main">
         <div class="main-cont">
@@ -51,12 +52,15 @@
                     <button id="home-plus-two">+2</button>
                     <button id="home-plus-three">+3</button>
                 </div>
+                <button id="clear-home-score">Clear</button>
             </div>
             <div id="middle">
-                <div id="timer"></div>
-                <div>
-                    <input id ="select-minutes"type="number" min="0" max="45">
-                    <button id="select-minutes-btn">Update</button>
+                <div class="timer-menu">
+                    <div id="timer"></div>
+                    <div id="input-container">
+                        <input id="select-minutes" type="number" min="0" max="45">
+                        <button id="select-minutes-btn">Update</button>
+                    </div>
                 </div>
                 <div>
                     <button id="main-countdown-btn"></button>
@@ -72,6 +76,7 @@
                     <button id="guest-plus-two">+2</button>
                     <button id="guest-plus-three">+3</button>
                 </div>
+                <button id="clear-guest-score">Clear</button>
             </div>
         </div>
     </div>
